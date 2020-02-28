@@ -1,4 +1,6 @@
 //constants index
+
+// largely left over from when I was set up to use redux, I'm leaving so I can readd redux in future
 export const GET_WEATHER = 'GET_WEATHER';
 export const SELECTED_CITY = 'SELECTED_CITY';
 export const ERROR = 'ERROR';

@@ -2,7 +2,7 @@ import axios from 'axios';
 import {API_KEY} from 'react-native-dotenv';
 
 import { BASEURL} from '../utils/constants';
-import {setCurrentForecast} from '../utils/functions'
+import {setCurrentForecast, setCurrentWeather} from '../utils/functions'
 
 export const getWeatherForecast = (city = 'seattle') => {
   let address = `${BASEURL}/forecast?q=${city}&appid=${API_KEY}`;
@@ -21,20 +21,7 @@ export const getCurrentWeather = (city = 'seattle') => {
   return axios
     .get(address)
     .then(({data}) => {
-
-      // console.log(`hi there`)
-      let {sys, weather, main} = data;
-      return {
-        sunrise: sys.sunrise,
-        sunset: sys.sunset,
-        cityName: data.name,
-        minTemp: main.temp_min,
-        maxTemp: main.temp_max,
-        temp: main.temp,
-        weather: weather[0].main,
-        weatherIcon: weather[0].icon,
-        offset: data.timezone,
-      };
+        return setCurrentWeather(data)
     })
     .catch(error => {
       // console.log(`error there`)

@@ -17,13 +17,12 @@ const StyledView = styled.View`
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px;
-
+  justify-content: space-around
   /* box-shadow: 3px; */
 `;
 const ParentView = styled.View`
   flex: 1;
   justify-content: center;
-  ${'' /* align-items: center; */}
 `;
 const ForecastWeather = ({forecast, units}) => {
   // let {forecast, units} = useSelector(state => state.currentInfo);
@@ -39,17 +38,18 @@ const ForecastWeather = ({forecast, units}) => {
   return (
     <ParentView>
       {forecast.map((daily, index) => {
-        {/* console.log(daily); */}
-        let key = Object.keys(daily)[0];
         return (
-          <StyledView key={key+index}>
-            <Text>{key} </Text>
-            <Text>Low {convert(daily[key].minTemp)} </Text>
-            <Text>High {convert(daily[key].maxTemp)} </Text>
+          <StyledView key={index}>
+            <Text>{daily.day} </Text>
+            <Text>Low {convert(daily.minTemp)} </Text>
+            <Text>High {convert(daily.maxTemp)} </Text>
+            <Image
+              source={{uri: `${IMG_BASEURL}/${daily.weatherIcon}@2x.png`}}
+              style={{width: 50, height: 50}}
+            />
           </StyledView>
         );
       })}
-      {/* <Text>{JSON.stringify(forecast, null, 2)}</Text> */}
     </ParentView>
   );
 };

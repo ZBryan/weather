@@ -23,14 +23,9 @@ const ParentView = styled.View`
   align-items: center;
   margin-bottom: 20px
 `;
-const TodayWeather = ({today, units, error}) => {
+const TodayWeather = ({today, units}) => {
   // let {today, units} = useSelector(state => state.currentInfo);
-  // console.log(today)
   let convert = units ? kelvinToF : kelvinToC;
-  // console.log('offset', today.offset);
-  if(error){
-    return (<Error></Error>)
-  }
   if (!today) {
     return (
       <View>
@@ -49,7 +44,7 @@ const TodayWeather = ({today, units, error}) => {
         />
       </StyledView>
       <Text style={{fontSize: 72}}>{convert(today.temp)}&deg;</Text>
-      <Text>Today - {getDayName(new Date())}</Text>
+      <Text>Today - {getDayName(getAdjustedDateTime(today.sunrise, today.offset))}</Text>
       <StyledView>
         <Text>High {convert(today.maxTemp)} </Text>
         <Text>Low {convert(today.minTemp)}</Text>

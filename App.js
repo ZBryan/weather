@@ -18,9 +18,9 @@ import {
   // Button,
 } from 'react-native';
 import {Button, CheckBox, Input} from 'react-native-elements';
-import  'react-native-vector-icons/FontAwesome5'
+import  Icon from 'react-native-vector-icons/FontAwesome'
 
-
+Icon.getFontFamily();
 import styled from 'styled-components';
 import {
   Header,
@@ -103,7 +103,7 @@ setError(true);
           </View>
           <View style={styles.body}>
             {error ? (
-              <ErrorComponent />
+              <ErrorComponent city={cityName}/>
             ) : (
               <>
                 <TodayWeather today={today} units={units} />
