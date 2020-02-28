@@ -20,7 +20,7 @@ import {
 import {Button, CheckBox, Input} from 'react-native-elements';
 import  Icon from 'react-native-vector-icons/FontAwesome'
 
-Icon.getFontFamily();
+Icon.loadFont();
 import styled from 'styled-components';
 import {
   Header,
