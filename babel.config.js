@@ -4,4 +4,5 @@ module.exports = {
     'module:react-native-dotenv',
     '@babel/preset-env',
   ],
+  plugins: ['babel-plugin-styled-components', 'transform-class-properties'],
 };

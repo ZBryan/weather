@@ -27,7 +27,7 @@ const ParentView = styled.View`
 `;
 const ForecastWeather = ({forecast, units}) => {
   // let {forecast, units} = useSelector(state => state.currentInfo);
-  console.log('forcast', forecast);
+  // console.log('forcast', forecast);
   let convert = units ? kelvinToF : kelvinToC;
   if (!forecast) {
     return (
@@ -39,7 +39,7 @@ const ForecastWeather = ({forecast, units}) => {
   return (
     <ParentView>
       {forecast.map((daily, index) => {
-        console.log(daily);
+        {/* console.log(daily); */}
         let key = Object.keys(daily)[0];
         return (
           <StyledView key={key+index}>

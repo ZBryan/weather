@@ -11,7 +11,7 @@ export const getWeatherForecast = (city = 'seattle') => {
     .then(res => {
       return setCurrentForecast(res.data)})
     .catch(error => {
-      console.log(`err`)
+      // console.log(`err`)
       throw new Error({address, error});
     });
 };
@@ -22,7 +22,7 @@ export const getCurrentWeather = (city = 'seattle') => {
     .get(address)
     .then(({data}) => {
 
-      console.log(`hi there`)
+      // console.log(`hi there`)
       let {sys, weather, main} = data;
       return {
         sunrise: sys.sunrise,
@@ -37,7 +37,7 @@ export const getCurrentWeather = (city = 'seattle') => {
       };
     })
     .catch(error => {
-      console.log(`error there`)
+      // console.log(`error there`)
       throw new Error({address, error});
     });
 };

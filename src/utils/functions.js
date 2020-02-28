@@ -1,4 +1,5 @@
 // helper functions
+import dayjs from 'dayjs'
 
 export const kelvinToC = tempK => {
   return (tempK - 273.15).toFixed(1);
@@ -11,18 +12,14 @@ export const kelvinToF = tempK => {
 export const getAdjustedDateTime = (ticks, offset) => {
   //ticks are the dt provided by the api
   //offset is the offset from GMT for the location listed in api as city.timezone
-  const localOffset = new Date().getTimezoneOffset() * 60;
+  const localOffset = dayjs().utcOffset() * 60;
 
-  //ran into an issue were time was not correct usuing offset, this was a work around... not sure if there is a better solution or if this works fully
-  //this is broken not sure how to fix
-  let adjusted = localOffset == Math.abs(offset) ? 0 : offset;
-  return new Date((ticks - 0) * 1000);
+  let adjusted =  localOffset - offset;
+  return dayjs.unix(ticks - adjusted);
 };
 
 export const getTime = date => {
-  let dt = date.toLocaleTimeString().split(':');
-  //return the time without seconds
-  return `${dt[0]}:${dt[1]} ${dt[2].split(' ')[1]}`;
+  return dayjs(date).format("h:mm a")
 };
 
 //function taken from stackoverflow

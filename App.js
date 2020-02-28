@@ -18,9 +18,8 @@ import {
   // Button,
 } from 'react-native';
 import {Button, CheckBox, Input} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import  'react-native-vector-icons/FontAwesome5'
 
-Icon.loadFont();
 
 import styled from 'styled-components';
 import {
@@ -48,12 +47,12 @@ const App = () => {
 
   const getWeather = async () => {
       setError(false)
-      console.log(`cityName`, cityName)
+      // console.log(`cityName`, cityName)
       getCurrentWeather(cityName).then(res => {
 
           setToday(res)
       }).catch(err=>{
-        console.log(err)
+        // console.log(err)
         setError(true);
       });
       getWeatherForecast(cityName).then(res => setForecast(res)).catch(err=>{
