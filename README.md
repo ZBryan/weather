@@ -27,10 +27,12 @@ api calls are handling just the call of the api, all additional logic is being h
 ## install
 * clone repo
 * cd into directory
-* npm i
+* npm install
 * cd ios
 * pod install
 * cd ..
+* cp sample.env .env
+* paste in secret into .env
 * npm run ios
 
 
