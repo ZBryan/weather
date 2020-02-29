@@ -25,13 +25,13 @@ I would if I kept going with this application remove the search and units switch
 api calls are handling just the call of the api, all additional logic is being handled in utils/functions.js
 
 ## install
-clone repo
-cd into directory
-npm i
-cd ios
-pod install
-cd ..
-npm run ios
+* clone repo
+* cd into directory
+* npm i
+* cd ios
+* pod install
+* cd ..
+* npm run ios
 
 
 
